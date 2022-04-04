@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="test suite" parallel="tests" thread-count="1">
+    <parameter name="valid_username" value="standard_user"/>
+    <parameter name="password" value="secret_sauce"/>
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="LoginTest"/>
+        </classes>
+    </test>
+    <test name="OperaTest">
+        <parameter name="browser" value="opera"/>
+        <classes>
+            <class name="ProductTest"/>
+        </classes>
+    </test>
+</suite>

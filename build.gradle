@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.1.2'
+    testImplementation group: 'org.testng', name: 'testng', version: '7.5'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.1.0'
+}
+
+test {
+    useTestNG()
+
+    testLogging {
+        exceptionFormat = 'full'
+    }
+
+    afterTest { desc, result ->
+        println "${desc.className} ${desc.name} ${result.resultType}"
+    }
+}
